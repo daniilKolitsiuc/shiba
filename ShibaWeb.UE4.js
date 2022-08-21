@@ -1133,7 +1133,7 @@ $(document).ready(function() {
 				return { db: db, wasmBytes: wasmBytes, fromIndexedDB: true };
 			});
 		}).catch(function() {
-			return download(Module.locateFile('UE4Game.wasm'), 'arraybuffer').then(function(wasmBytes) {
+			return download(Module.locateFile('https://dl.dropboxusercontent.com/s/u29wnr09e1frxfx/UE4Game.wasm?dl=0'), 'arraybuffer').then(function(wasmBytes) {
 				return { db: db, wasmBytes: wasmBytes, fromIndexedDB: false };
 			});
 		});
@@ -1167,9 +1167,9 @@ $(document).ready(function() {
 			});
 */
 // Instead as a fallback, download as ArrayBuffer. (TODO: Figure out the bugs with the above, and switch to using that one instead)
-			fetchOrDownloadAndStore(db, Module.locateFile('ShibaWeb.data'), 'arraybuffer').then(function(dataArrayBuffer) {
+			fetchOrDownloadAndStore(db, Module.locateFile('https://dl.dropboxusercontent.com/s/q4g7ug30dtvt0if/ShibaWeb.data?dl=0'), 'arraybuffer').then(function(dataArrayBuffer) {
 				Module['preloadedPackages'] = {};
-				Module['preloadedPackages'][Module.locateFile('ShibaWeb.data')] = dataArrayBuffer;
+				Module['preloadedPackages'][Module.locateFile('https://dl.dropboxusercontent.com/s/q4g7ug30dtvt0if/ShibaWeb.data?dl=0')] = dataArrayBuffer;
 				return dataJsDownload.then(addScriptToDom);
 			});
 
